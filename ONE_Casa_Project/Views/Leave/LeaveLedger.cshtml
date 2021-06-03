@@ -1,0 +1,150 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.Leaves>
+
+@{
+    ViewData["Title"] = "LeaveLedger";
+}
+<div class="row">
+    <div class="form-group" style=" padding-top: 1vw; padding-left: 5vw; ">
+        <select class="form-control" style="width: 15vw;" aria-label="Default select example" name="LeaveLedger" id="LeaveLedger">
+            @foreach (var data in ViewBag.AllEmp)
+            {
+                <option value="@data.Id">@data.Name</option>
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group" style=" padding-top: 1vw; padding-left: 5vw; ">
+        <select class="form-control" id="DebitCredit" style="width: 15vw;">
+            <option value="Debit">Debit</option>
+            <option value="Credit">Credit</option>
+        </select>
+    </div>
+</div>
+
+<p style="margin-left: 5vw;">Name:- @ViewBag.Name</p>
+
+<table class="table" style="background-color: white;margin: auto;width: 90vw;margin-top: 5vh;" id="table1">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Apply Date
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalLeave)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TakenLeave)
+            </th>
+            <th>
+                Total Leave Balance
+            </th>
+            <th>
+                Total Immediate Instance Balance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    <p>@item.CurrentDate.Day-@item.CurrentDate.Month-@item.CurrentDate.Year</p>
+                </td>
+                <td>
+                    <p>@item.FromDate.Day-@item.FromDate.Month-@item.FromDate.Year</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalLeave)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakenLeave)
+                </td>
+                <td>
+                    @ViewBag.totalLeave
+                </td>
+                <td>
+                    @ViewBag.ImmediateLeave
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+<table class="table" style="background-color: white;margin: auto;width: 90vw;margin-top: 5vh;" id="table2">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                On Date
+            </th>
+            <th>
+                Note
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Total Leaves
+            </th>
+            <th>
+                Immediate Leaves
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.CreditLedger)
+        {
+            <tr>
+
+                <td>
+                    <p>@item.OnDate.Day-@item.OnDate.Month-@item.OnDate.Year</p>
+                </td>
+                <td>
+                    <p>@item.Note</p>
+                </td>
+                <td>
+                    <p>@item.Amount</p>
+                </td>
+                <td>
+                    <p>@item.Type</p>
+                </td>
+                <td>
+                    <p>@item.TotalLeave</p>
+                </td>
+                <td>
+                    <p>@item.ImmediateLeave</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

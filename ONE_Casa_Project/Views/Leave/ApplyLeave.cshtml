@@ -1,0 +1,78 @@
+﻿@model ONE_Casa_Project.Models.Leaves
+
+@{
+    ViewData["Title"] = "ApplyLeave";
+}
+@Html.Partial("LeavePartial")
+<h4 style=" margin-left: 6vw; padding: 2vw;">ApplyLeave</h4>
+
+<form asp-action="ApplyLeave" style=" width: 50vw; margin: auto; background-color: white;padding: 1vw;" onsubmit=" return checkApply()">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    @if (ViewBag.Name == null)
+    {
+        <div class="form-group">
+            <label asp-for="EmpId" class="control-label">Select Employee*</label><br>
+            <select class="form-control" aria-label="Default select example" name="EmpId" id="EmpId">
+
+                @foreach (var data in ViewBag.Emp)
+                {
+                    <option value="@data.Id">@data.Name-@data.Id</option>
+                }
+            </select>
+            <span asp-validation-for="EmpId" class="text-danger"></span>
+        </div>
+    }
+    <input type="text" name="Type" id="Type" value="" hidden />
+    <div class="form-group">
+        <label asp-for="LeaveType" class="control-label"></label>
+        <select class="form-control" name="LeaveType" id="LeaveType">
+            <option value="Full Day">  Full Day  </option>
+            <option value="Bereavement"> Bereavement </option>
+            <option value="Birthday">  Birthday  </option>
+            <option value="Half Day">  Half Day  </option>
+        </select>
+        <span asp-validation-for="LeaveType" class="text-danger"></span>
+    </div>
+
+    <div class="row" style=" justify-content: space-around; align-items: center;">
+        <div class="form-group" style="width:26%">
+            <label asp-for="FromDate" class="control-label"></label>
+            <input asp-for="FromDate" type="date" class="form-control" />
+            <span asp-validation-for="FromDate" class="text-danger"></span>
+        </div>
+        <div class="form-group" style="width:26%">
+            <label asp-for="ToDate" class="control-label"></label>
+            <input asp-for="ToDate" type="date" class="form-control" />
+            <span asp-validation-for="ToDate" class="text-danger"></span>
+        </div>
+        <input type="number" style="width:25%" disabled />
+    </div>
+    <div class="row" id="time" style=" justify-content: space-around; align-items: center;">
+        <div class="form-group" style="width:26%">
+            <label asp-for="FromTime" class="control-label"></label>
+            <input asp-for="FromTime" type="time" value="00:00:00" class="form-control" />
+            <span asp-validation-for="FromTime" class="text-danger"></span>
+        </div>
+        <div class="form-group" style="width:26%">
+            <label asp-for="ToTime" class="control-label"></label>
+            <input asp-for="ToTime" type="time" value="00:00:00" class="form-control" />
+            <span asp-validation-for="ToTime" class="text-danger"></span>
+        </div>
+        <input type="number" style="width:25%" disabled />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

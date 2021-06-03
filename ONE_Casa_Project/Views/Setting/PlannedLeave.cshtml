@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.PlannedLeaves>
+
+@{
+    ViewData["Title"] = "PlannedLeave";
+}
+
+<h3 style=" margin-left: 3vw; padding-top: 2vh;">Planned Leave Settings</h3>
+
+<table class="table" style="background-color: white;margin: auto;width: 90vw;margin-top: 5vh;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Leave Duration
+            </th>
+            <th>
+                Required Time / Working Days
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Duration == 40)
+                    {
+                        @(item.Duration/10) <p style="display: inline;">& above</p>
+                    }
+                    else
+                    {
+                        @(item.Duration/10)
+                    }
+
+                </td>
+                <td>
+                    <input type="number" value="@item.RequiredTime" id="_@item.Duration" disabled />
+                </td>
+                <td>
+                    <button class="btn btn-primary margin_0  loyaltyLeaveUpdate" id="plannedLeaveUpdate_@item.Duration" onclick=plannedLeaveFactorUpdate(@item.Duration)>Update</button>
+                    <button class="btn btn-primary margin_0 " id="plannedLeaveEdit_@item.Duration" onclick=plannedLeaveFactorEdit(@item.Duration)>Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

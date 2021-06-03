@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.IndividualLeave>
+
+@{
+    ViewData["Title"] = "Lop";
+}
+
+<h4 style=" margin-left: 3vw; padding-top: 4vh; padding-bottom: 4vh;">LOP Report</h4>
+
+<table class="table" id="table1" style=" background-color: white;width: 90vw;margin: auto;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveBalance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImmediateBalance)
+            </th>
+            <th>
+                Negative balance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveBalance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImmediateBalance)
+                </td>
+                <td>
+                    @if (item.LeaveBalance <= item.ImmediateBalance && item.LeaveBalance < 0)
+                    {
+                        <p>@item.LeaveBalance</p>
+                    }
+                    else
+                    {
+                        if (item.LeaveBalance >= item.ImmediateBalance && item.ImmediateBalance < 0)
+                        {
+                            <p>@item.ImmediateBalance</p>
+                        }
+                        else
+                        {
+                            <p>00</p>
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

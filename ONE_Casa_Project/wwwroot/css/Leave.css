@@ -1,0 +1,109 @@
+﻿[4:41 PM, 5/13/2021] Ritwaj Bcg: .viewLeave {
+    width: 100%;
+    overflow: scroll;
+    margin: auto;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: rgb(221,221,221);
+}
+
+th:first-child, th:nth-child(2) {
+    white-space: nowrap;
+}
+
+td {
+    text-align: center;
+}
+
+.search {
+    width: 40%;
+}
+
+.input-group > div {
+    width: 35px;
+    text-align: center;
+    background-color: #0277bd;
+    padding-top: 7px;
+    color: white;
+}
+
+.search > div {
+    width: 255px;
+}
+
+.hint {
+    justify-content: space-between;
+    padding: 35px 10px;
+}
+
+    .hint > div:last-child {
+        width: 35%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .hint > div:first-child {
+        width: 60%;
+    }
+
+.round {
+    position: relative;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid rgba(225,225,225,.5);
+}
+
+label {
+    margin-left: 5px;
+}
+
+
+.null {
+    background-color: rgb(255,255,255);
+}
+
+.planned {
+    background-color: rgb(74,189,89);
+}
+
+.immidiate {
+    background-color: rgb(245,127,23);
+}
+
+.unPlannede {
+    background-color: rgb(255,72,31);
+}
+
+.publicHoliday {
+    background-color: rgb(53,152,220);
+}
+
+.weekEnd {
+    background-color: rgb(194,194,194);
+}
+
+[4:41 PM, 5/13/2021] Ritwaj Bcg: -------js
+[4:41 PM, 5/13/2021] Ritwaj Bcg: $(".data").each(function () {
+        var cell = $(this).html();
+        cell = cell.trim();
+        if (cell[0] == "P" || cell[0] == "A" || cell[0] == "R" || cell[0] == "T" || cell[0] == "O")
+        {
+            var len = cell.length;
+            var val = cell.substring(2, len);
+            if (val == "Planned")
+                $(this).css("background", "rgb(74,189,89)");
+            if (val == "Immediate")
+                $(this).css("background", "rgb(245,127,23)");
+            if (val == "UnPlanned")
+                $(this).css("background", "rgb(255,72,31)");
+            if (val == "PublicHoliday")
+                $(this).css("background", "rgb(53,152,220)");
+            $(this).html(cell[0]);
+        }
+        else
+            $(this).css("background", "rgb(255,255,255)");
+    });

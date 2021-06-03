@@ -1,0 +1,125 @@
+﻿
+
+@model IEnumerable<ONE_Casa_Project.Models.PublicHolidays>
+
+@{
+    ViewData["Title"] = "PublicHoliday";
+}
+
+<h2 style=" margin-left: 3vw; padding-top: 2vh;">Public Holiday Settings</h2>
+<button class="btn btn-primary margin_0 JobTitleAddButton" onclick="PublicHolidayAdd()">+Add Public Holiday</button>
+<div style="padding:20px;padding-top:0">
+    <table class="table" style=" background-color: white;">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dates)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.HolidayName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="Delete_@item.Id">
+
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Dates)*@
+                        @*<input type="date" value="@(item.Dates)" id="date_@item.Id" name="hdates" disabled />*@
+                        <input type="date" value="@(item.Dates.Year)-@( item.Dates.Month <= 10 ? "0"+ item.Dates.Month :""+ item.Dates.Month )-@( item.Dates.Day <= 10 ? "0"+ item.Dates.Day :""+ item.Dates.Day )" id="date_@item.Id" disabled />
+
+
+                    </td>
+                    <td>
+                        <input type="text" value="@(item.HolidayName)" id="name_@item.Id" disabled />
+                    </td>
+                    <td>
+                 
+                        <div class="form-group">
+                            Consulting: <input type="radio" id="Consulting_@item.Id" name="radio_@item.Id" @( item.Department == "Consulting" ? "checked='true'" : "") value="Consulting" disabled>
+                            KPO B: <input type="radio" id="KPOB_@item.Id" name="radio_@item.Id" @(item.Department == "KPO B" ? "checked='true'" : "") value="KPOB" disabled>
+                            BOTH: <input type="radio" id="Both_@item.Id" name="radio_@item.Id" @(item.Department == "Both" ? "checked='true'" : "") value="Both" disabled>
+
+                        </div>
+                    </td>
+                    <td>
+                        <a @*href="/setting/Edit/@item.Id"*@ onclick="EditHoliday( @item.Id )" class="btn btn-primary margin_0" id="Edit_@item.Id" tabindex="-1" role="button">Edit</a>
+                        <a @*href="/setting/Edit/@item.Id"*@ onclick="UpdateHoliday( @item.Id )" class="demo btn btn-primary margin_0" id="Update_@item.Id" tabindex="-1" role="button">Update</a>
+                        <a @*href="/setting/Delete/@item.Id"*@ onclick="DeleteHoliday( @item.Id )" class="btn btn-primary margin_0" tabindex="-1" role="button">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

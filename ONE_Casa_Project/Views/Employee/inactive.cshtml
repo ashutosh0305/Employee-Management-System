@@ -1,0 +1,183 @@
+﻿
+@model IEnumerable<ONE_Casa_Project.Models.Employee>
+
+@{
+    ViewData["Title"] = "inactive";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="container-fluid" style=" padding-top: 29px;">
+    <div class="row">
+        <div class="col col-8">
+
+            <div class="row" style=" margin: 0;">
+                <form action="/Employee/getemployee" method="post" style="display:flex; margin-left: -8px;">
+                    <div class="col-4" style="padding-right:0">
+                        <input type="text" id="fname" name="fname" value="name"><br>
+                    </div>
+                    <div class="col-auto" style="padding:0">
+                        <input type="submit" value="Search" class="btn btn-primary btn-sm" style=" margin-right: 365px;">
+                    </div>
+                </form>
+                <li class="nav-item dropdown" style="DISPLAY: INLINE; margin-top: 1px; border-style: groove; border-width: 1px; width: 166px; height: 26px; margin-left:2px">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style=" margin-top: -7px; color:black">
+                        Active
+                    </a>
+                    <div class="dropdown-menu" style=" margin-left: -18px; transform: translate3d(30px, 24px, 0px); width: 2px;">
+                        <a class="dropdown-item" style="margin-left: -3px;" href="https://localhost:44374/Employee/active">Active</a>
+                        <a class="dropdown-item" style="margin-left: -3px;" href="https://localhost:44374/Employee/inactive">InActive</a>
+
+                    </div>
+                </li>
+
+            </div>
+
+
+        </div>
+        <div class="col col-4">
+            <div class="offset-md-4">
+                <button class="btn btn-secondary">Reset</button>
+                @*<button class="btn btn-primary">Add New Employee</button>*@
+                <a class="btn btn-primary edithide" style="margin-top: -2px;" href="https://localhost:44374/Employee/Create">Add New Employee</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style=" padding: 0; margin: 20px; margin-left: 0;">
+    <div class="row" style=" margin: 0;">
+        <div class="col-8">
+            <h4 class="">List of Employees</h4>
+        </div>
+        <div class="col-4">
+            <h4 class="text-right">Showing <span id="dvalue">2</span> out of 152 record(s)</h4>
+        </div>
+    </div>
+</div>
+
+<div style="padding:20px;padding-top:0">
+    <table class="table" style=" background-color: white;">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    Job Title
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mobile)
+                </th>
+                <th>
+                    Reporting Manager
+                </th>
+                <th>
+                    Action
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Status)*@
+                    Status
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            @{ int i = 0;}
+            @foreach (var item in Model)
+            {
+                i = i + 1;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobTitle)
+                    </td>
+                    <td>
+                        <p>@item.Email</p>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReportingManager)
+                    </td>
+                    <td>
+                        <a href="/employee/Edit/@item.Id" class="btn btn-primary margin_0 edithide" tabindex="-1" role="button">Edit</a>
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ })*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+@*<script>
+
+        function myfunction() {
+
+            let filter = document.getElementsByClassName("form-control form-control-sm").Value.toUpperCase();
+          @foreach (var item in Model)
+          {
+               let It = modelItem => item.Name.toUpperCase();
+              if ()
+
+
+
+
+
+
+
+                  let filter = document.getElementsByClassName("form-control form-control-sm").Value.toUpperCase();
+
+              let myTable = document.getElementById('myTable');
+              let tr = myTable.getElementsByTagName('tr');
+              for (var i = 0; i < tr.length; i++) {
+                  let td = tr[i].getElementsByTagName('td')[1];
+                  if (td) {
+                      let textvalue = td.textContent || td.innerHTML;
+                      if (textvalue.toUpperCase().indexof(filter) > -1) {
+                          tr[i].style.display = "";
+
+                      }
+                      else {
+                          tr[i].style.display = "none";
+                      }
+                  }
+              }
+          }
+     }
+    </script>*@
+
+
+<script>
+    //function change_text() {
+    //    document.getElementById("dvalue").innerHTML = i;
+    //}
+    //change_text();
+
+    $(document).ready(function () {
+
+    document.getElementById("dvalue").innerHTML = @i;
+    })
+
+</script>

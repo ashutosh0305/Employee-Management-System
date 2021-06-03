@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.Leaves>
+
+@{
+    ViewData["Title"] = "ReportTaken";
+}
+<h4 style=" margin-left: 3vw; padding-top: 4vh; padding-bottom: 4vh;">Leave Taken Report</h4>
+
+<table class="table" id="table1" style=" background-color: white;width: 90vw;margin: auto;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Leave Type
+            </th>
+            <th>
+                Leave Date
+            </th>
+            <th>
+                Note
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    <p>@item.FromDate.Day-@item.FromDate.Month-@item.FromDate.Year</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

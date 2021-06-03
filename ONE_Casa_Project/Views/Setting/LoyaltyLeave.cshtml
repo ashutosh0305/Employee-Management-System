@@ -1,0 +1,38 @@
+﻿ @model IEnumerable<ONE_Casa_Project.Models.LoyaltyLeaveFactors>
+
+@{
+    ViewData["Title"] = "LoyaltyLeave";
+}
+
+<h3 style=" margin-left: 3vw; padding-top: 2vh;">Loyalty Leave</h3>
+
+<table class="table" style="background-color: white;margin: auto;width: 90vw;margin-top: 5vh;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                On the Completion Of<br> (Years)
+            </th>
+            <th>
+                Leave Factor
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.YearComplete
+                </td>
+                <td>
+                    <input type="number" value="@item.Leave" id="_@item.YearComplete" disabled />
+                </td>
+                <td>
+                    <button class="btn btn-primary margin_0  loyaltyLeaveUpdate" id="loyaltyLeaveUpdate_@item.YearComplete" onclick=loyaltyLeaveFactorUpdate(@item.YearComplete)>Update</button>
+                    <button class="btn btn-primary margin_0 " id="loyaltyLeaveEdit_@item.YearComplete" onclick=loyaltyLeaveFactorEdit(@item.YearComplete)>Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

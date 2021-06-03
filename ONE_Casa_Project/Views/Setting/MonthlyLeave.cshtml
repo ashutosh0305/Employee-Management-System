@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.MonthlyLeaves>
+
+@{
+    ViewData["Title"] = "MonthlyLeave";
+}
+
+
+<h3 style=" margin-left: 3vw; padding-top: 2vh;">Employee Monthly Leave Factor</h3>
+
+<table class="table" style="background-color: white;margin: auto;width: 90vw;margin-top: 5vh;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                From Year
+            </th>
+            <th>
+                To Year
+            </th>
+            <th>
+                Leave Factor
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.From)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.To)
+                </td>
+                <td>
+                    <input type="number" value="@item.Leaves" id="_@item.From" disabled />
+                </td>
+                <td>
+                    <button class="btn btn-primary margin_0  loyaltyLeaveUpdate" id="monthlyLeaveUpdate_@item.From" onclick=monthlyLeaveFactorUpdate(@item.From)>Update</button>
+                    <button class="btn btn-primary margin_0 " id="monthlyLeaveEdit_@item.From" onclick=monthlyLeaveFactorEdit(@item.From)>Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

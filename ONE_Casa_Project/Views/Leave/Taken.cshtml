@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.Leaves>
+
+@{
+    ViewData["Title"] = "Taken";
+}
+@Html.Partial("LeavePartial")
+<h4 style=" margin-left: 1vw; padding-top: 4vh; padding-bottom: 4vh;">Taken/Rejected/Cancelled Leaves</h4>
+
+<table class="table" style=" background-color: white;width: 95vw;margin: auto">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Name - Employee ID
+            </th>
+            <th>
+                Leave Type / Avail
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Taken Leave
+            </th>
+            <th>
+                Status
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Status == "Cancelled" || item.Status == "Rejected" || item.Status == "Taken" || item.Status == "Partial Taken")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmpName)
+                    </td>
+                    <td>
+                        @item.LeaveType / @item.Type
+                    </td>
+                    <td>
+                        <p>@(item.FromDate.Year)-@( item.FromDate.Month <= 10 ? "0"+ item.FromDate.Month :""+ item.FromDate.Month )-@( item.FromDate.Day <= 10 ? "0"+ item.FromDate.Day :""+ item.FromDate.Day ) <p />
+                    </td>
+                    <td>
+                        <p>@(item.ToDate.Year)-@( item.ToDate.Month <= 10 ? "0"+ item.ToDate.Month :""+ item.ToDate.Month )-@( item.ToDate.Day <= 10 ? "0"+ item.ToDate.Day :""+ item.ToDate.Day ) <p />
+
+                    </td>
+                    <td>
+                        @if (item.LeaveType == "Half Day")
+                        {
+                            <p style="margin:0">0.5</p>
+                        }
+                        else
+                        {
+                            <p style="margin:0">@(item.ToDate.Subtract(item.FromDate).Days + 1)</p>
+                        }
+                    </td>
+                    <td>
+                        @item.TakenLeave
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

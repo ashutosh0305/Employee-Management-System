@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<ONE_Casa_Project.Models.JobTitles>
+
+@{
+    ViewData["Title"] = "JobTitle";
+}
+
+<h1 style=" margin-left: 3vw; padding-top: 2vh;">JobTitle</h1>
+<button class="btn btn-primary margin_0 JobTitleAddButton" onclick="JobTitleAdd()">Add Job Title</button>
+<div style="padding:20px;padding-top:0">
+    <table class="table" style=" background-color: white;">
+        <thead class="table-dark">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.JobTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="Delete_@item.Id">
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobTitle)
+
+                    </td>
+                    <td>
+                      
+                        <div class="form-group">
+                            Employee: <input type="radio" id="Employee_@item.Id" name="Name_@item.Id" @( item.Type == "Employee" ? "checked='true'" : "") value="Employee" disabled>
+                            Consultant: <input type="radio" id="Consultant_@item.Id" name="Name_@item.Id" @(item.Type == "Consultant" ? "checked='true'" : "") value="Consultant" disabled>
+                           
+                        </div>
+                    </td>
+                    <td>
+                        <a @*href="/setting/Edit/@item.Id"*@ onclick="EditSetting( @item.Id )" class="btn btn-primary margin_0" id="Edit_@item.Id" tabindex="-1" role="button">Edit</a>
+                        <a @*href="/setting/Edit/@item.Id"*@ onclick="UpdateSetting( @item.Id )" class="demo btn btn-primary margin_0" id="Update_@item.Id" tabindex="-1" role="button">Update</a>
+                        <a @*href="/setting/Delete/@item.Id"*@ onclick="DeleteSetting( @item.Id )" class="btn btn-primary margin_0" tabindex="-1" role="button">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

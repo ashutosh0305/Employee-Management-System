@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.UnplannedLeaves>
+
+@{
+    ViewData["Title"] = "UnplannedLeave";
+}
+
+<h3 style=" margin-left: 3vw; padding-top: 2vh;">Unplanned Leave Settings</h3>
+
+<table class="table" style="background-color: white;margin: auto;width: 90vw;margin-top: 5vh;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Immediate Leave Availed(Days)
+            </th>
+            <th>
+                Deduction - Immediate Balance
+            </th>
+            <th>
+                Deduction - Total Leave Balance
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.ImmediateLeaveAvailable == 30)
+                    {
+                        <p style="display: inline;">More than 2</p>
+                    }
+                    else
+                    {
+                        @(item.ImmediateLeaveAvailable / 10)
+                    }
+                </td>
+                <td>
+                    <input type="number" value="@(item.DeductionImmediateLeave/10)" id="_@item.ImmediateLeaveAvailable" disabled />
+                </td>
+                <td>
+                    @if (item.DeductionTotalLeave == 30)
+                    {
+                        <p style="display: inline;">Number of leaves availed</p>
+                    }
+                    else
+                    {
+                        @(item.DeductionTotalLeave / 10)
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-primary margin_0  loyaltyLeaveUpdate" id="unplannedLeaveUpdate_@item.ImmediateLeaveAvailable" onclick=unplannedLeaveFactorUpdate(@item.ImmediateLeaveAvailable)>Update</button>
+                    <button class="btn btn-primary margin_0 " id="unplannedLeaveEdit_@item.ImmediateLeaveAvailable" onclick=unplannedLeaveFactorEdit(@item.ImmediateLeaveAvailable)>Edit</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

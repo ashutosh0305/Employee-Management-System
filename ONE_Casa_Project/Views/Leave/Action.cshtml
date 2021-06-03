@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.Leaves>
+
+@{
+    ViewData["Title"] = "Action";
+}
+
+@Html.Partial("ConfirmationPartial")
+
+
+<h4 style=" margin-left: 3vw; padding-top: 4vh; padding-bottom: 4vh;">Action</h4>
+
+<table class="table" style=" background-color: white;width: 96vw;margin: auto;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                Name-Id
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.EmpName-@item.EmpId
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaveType)
+                </td>
+                <td>
+                    <p>@(item.FromDate.Year)-@( item.FromDate.Month <= 10 ? "0"+ item.FromDate.Month :""+ item.FromDate.Month )-@( item.FromDate.Day <= 10 ? "0"+ item.FromDate.Day :""+ item.FromDate.Day ) <p />
+
+                </td>
+                <td>
+                    <p>@(item.ToDate.Year)-@( item.ToDate.Month <= 10 ? "0"+ item.ToDate.Month :""+ item.ToDate.Month )-@( item.ToDate.Day <= 10 ? "0"+ item.ToDate.Day :""+ item.ToDate.Day ) <p />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    <a href="/Leave/Approve/@item.Id" class="btn btn-primary" style="color:white;margin:0;">Approve</a>
+                    <a href="/Leave/Cacel/@item.Id" class="btn btn-primary" style="color:white;margin:0;">Cancel</a>
+                    <a href="/Leave/Reject/@item.Id" class="btn btn-primary" style="color:white;margin:0;">Reject</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

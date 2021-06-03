@@ -1,0 +1,118 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*<div class="container">
+        <div class="container-in d-flex">
+            <div><h2>Leaves Detail</h2></div>
+
+            <div id="month">
+                <select class="month">
+                    <option selected>Select Month</option>
+                    <option>Jan</option>
+                    <option>Feb</option>
+                </select>
+            </div>
+
+        </div>
+    </div>*@
+@*@{
+    ViewData["Title"] = "Index";
+}*@
+
+
+<div class="maincontainerd">
+    <div class="containerd ">
+        <div class="containerd-in d-inline-flex">
+            <div class="leavedetail" style="margin-top: -21px;">
+                <h2>Leaves Detail</h2>
+            </div>
+
+            <div id="month">
+                <select class="firstbox">
+                    <option selected>Select Month</option>
+                    <option>Jan</option>
+                    <option>Feb</option>
+                </select>
+            </div>
+            <div id="year">
+                <select class="Secondbox">
+                    <option selected>Select Year</option>
+                    <option>2021</option>
+                    <option>2020</option>
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="container2d d-flex" style="margin-top:35px; ">
+        <div class="c2i1" id="c2item1">
+            <div class="oc2c" id="oc2c1"></div>
+            <div class="c2c1" id="c2c1id1"> @ViewBag.taken</div>
+
+            <div class="c2r1">Taken</div>
+        </div>
+        <div class="c2i1" id="c2item2">
+            <div class="oc2c" id="oc2c2"></div>
+            <div class="c2c1" id="c2c1id2">@ViewBag.Approved</div>
+            <div class="c2r1">Approved</div>
+        </div>
+        <div class="c2i1" id="c2item3">
+            <div class="oc2c" id="oc2c3"></div>
+            <div class="c2c1" id="c2c1id3">@ViewBag.pending</div>
+            <div class="c2r1">Pending</div>
+        </div>
+        <div class="c2i1" id="c2item4">
+            <div class="oc2c" id="oc2c4"></div>
+            <div class="c2c1" id="c2c1id4">@ViewBag.Canceled</div>
+            <div class="c2r1">Cancelled</div>
+        </div>
+        <div class="c2i1" id="c2item5">
+            <div class="oc2c" id="oc2c5"></div>
+            <div class="c2c1" id="c2c1id5">@ViewBag.Reject</div>
+            <div class="c2r1">Rejected</div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="metercontain" style="     background-color: #fff;
+        margin-left: 26px;
+        margin-right: 26px;
+        margin-top: 49px;
+        border: 10px;
+        height: 257px;
+        border: 1px;
+        box-shadow: 2px 4px 6px 0 gray,2px 6px 20px 2px gray;
+        margin-bottom: 31px;">
+        <div class="meterrow1" style="padding: 13px; display: flex; ">
+            <div class="timesheet" style=" font-size: 21px; ">Timesheet</div>
+            <select name="project" class="formcontrol custom-select" style="margin-left: 80%;width: 204px;height: 33px;">
+                <option value="Name" style="font-size:8px;">Select Name</option>
+            </select>
+        </div>
+        <div class="graph" style="display: flex; justify-content: space-evenly;     margin-top: 12px; padding: 16px;">
+            <div class="picture"> <img src="https://qaonecasav2.onebcg.com/assets/images/gauge-img.png" /> </div>
+            <div class="picture"> <img src="https://qaonecasav2.onebcg.com/assets/images/gauge-img.png" /> </div>
+            <div class="picture"> <img src="https://qaonecasav2.onebcg.com/assets/images/gauge-img.png" /> </div>
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+

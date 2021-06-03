@@ -1,0 +1,273 @@
+﻿/*
+CSS form LAYOUT*/
+
+.forhover:hover {
+    background-color: #1d5aab;
+    color: white;
+}
+
+
+
+
+
+.btn btn-primary{
+    margin-top:-2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.img-container {
+    position: absolute;
+    /* object-fit: cover; */
+    align-content: center;
+    top: 50%;
+}
+
+.container {
+    margin-left: 40%;
+    margin-top: 220px;
+    /* display:flex;
+    flex-direction: column; */
+}
+
+.item1 {
+    background-color: white;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 38px;
+}
+
+#item1id {
+    margin-left: 30px;
+    margin-top: -54px;
+}
+
+.button {
+    background-color: #5757ca;
+    border: none;
+    color: white;
+    font-size: 21px;
+    margin: 19px 5px;
+    padding: 12px 36px;
+}
+
+.span1 {
+    font-size: 20px;
+}
+
+
+/*<<<<<---------------------Employee Css------------------>>>*/
+
+
+
+.nav-logo {
+    height: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+}
+
+.white {
+    color: white;
+}
+
+a {
+    padding: 0;
+    display: block;
+    margin: 10px;
+    font-size: 20px;
+    text-size-adjust: 100%;
+}
+
+    a:hover {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+
+.registerEdit {
+    background-color: #edf0f5;
+}
+
+.registerForm {
+    margin: auto;
+    width: 50vw;
+    padding: 20px;
+    background-color: white;
+}
+
+.margin_0 {
+    margin: 0;
+}
+
+
+/* <</<<<-----------CSS FOR DASHBOARD------------------>>>>>>>>>>>>>>> */
+
+.maincontainerd {
+    background-color: #f0f5f5;
+
+}
+
+.containerd {
+    margin-left: 39px;
+    margin-top: -29px;
+}
+
+
+.containerd-in {
+    margin-top: 30px;
+}
+
+.firstbox {
+    word-wrap: normal;
+    width: 188px;
+    margin-left: 337%;
+    height: 30px;
+}
+
+.Secondbox {
+    word-wrap: normal;
+    width: 188px;
+    margin-left: 398%;
+    height: 30px;
+}
+
+.container2d {
+    /* width:100%;
+    margin-top: 119px;
+    justify-content: space-between;
+    height: 30px; */
+    margin-top: 35px;
+    height: 230px;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.c2i1 {
+    border: 0.5px solid;
+    width: 280px;
+    /* padding: 10px; */
+    margin: 7px;
+    /* padding: -10px; */
+    position: relative;
+    background-color: white;
+    border-color: #d6d4d4;
+}
+
+.c2c1 {
+    position: absolute;
+    border: 1px solid;
+    display: flex;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    margin-left: 110px;
+    height: 60px;
+    margin-top: 60px;
+    border-radius: 100%;
+    color: white;
+    font-size: 25px;
+}
+
+.c2r1 {
+    position: absolute;
+    text-align: center;
+    width: 90px;
+    margin-left: 95px;
+    height: 60px;
+    margin-top: 130px;
+}
+
+#c2c1id1 {
+    background-color: #112b5c;
+}
+
+#c2c1id2 {
+    background-color: green;
+}
+
+#c2c1id3 {
+    background-color: orangered;
+}
+
+#c2c1id4 {
+    background-color: #9faabf;
+}
+
+#c2c1id5 {
+    background-color: #e34d39;
+}
+
+.oc2c {
+    position: absolute;
+    border: 0px solid;
+    display: flex;
+    /* text-align: center; */
+    /* vertical-align: middle; */
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    margin-left: 105px;
+    height: 70px;
+    margin-top: 55px;
+    border-radius: 100%;
+    /* color: white;
+    font-size: 25px; */
+}
+
+#oc2c1 {
+    background-color: #70a0fa;
+}
+
+
+#oc2c2 {
+    background-color: #8fffa2;
+}
+
+#oc2c3 {
+    background-color: #f7b78f;
+}
+
+#oc2c4 {
+    background-color: #c9c4c1;
+}
+
+#oc2c5 {
+    background-color: #d1796d;
+}
+
+
+
+
+/*CSS for Jobtitle*/
+
+.margin_0 {
+    margin: 0;
+}
+
+.JobTitleAddButton {
+    float: right;
+    margin-right: 14vw;
+    margin-bottom: 5vh;
+    margin-top: -3vh;
+}
+.JobTitleAddButtoncancel {
+    float: right;
+    margin-right: 3vw;
+    margin-bottom: 5vh;
+    margin-top: -3vh;
+}
+
+

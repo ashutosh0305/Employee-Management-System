@@ -1,0 +1,79 @@
+﻿@model ONE_Casa_Project.Models.Leaves
+
+@{
+    ViewData["Title"] = "PendingEdit";
+}
+
+@Html.Partial("LeavePartial")
+
+<h4 style=" margin-left: 6vw; padding: 2vw;">
+    Edit Leaves
+</h4>
+<form asp-action="PendingEdit" style=" width: 50vw; margin: auto; background-color: white;padding: 1vw;" onsubmit=" return checkApply2()">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="EmpName" class="control-label">Employee</label>
+        <input value="@Model.EmpName" name="EmpName" id="EmpName" class="form-control" disabled />
+        <span asp-validation-for="EmpName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LeaveType" class="control-label">Leave Type</label>
+        <input value="@Model.LeaveType" name="LeaveType" id="LeaveType" class="form-control" disabled />
+        <span asp-validation-for="LeaveType" class="text-danger"></span>
+    </div>
+    <div class="row" style=" justify-content: space-around; align-items: center;">
+        <div class="form-group" style="width:26%">
+            <label asp-for="FromDate" class="control-label">From</label>
+            <input asp-for="FromDate" type="date" class="form-control" />
+            <span asp-validation-for="FromDate" class="text-danger"></span>
+        </div>
+        @if (Model.LeaveType != "Half Day")
+        {
+            <div class="form-group">
+                <label asp-for="ToDate" class="control-label">To</label>
+                <input asp-for="ToDate" type="date" class="form-control" />
+                <span asp-validation-for="ToDate" class="text-danger"></span>
+            </div>
+        }
+        <input type="number" style="width:25%" disabled />
+    </div>
+    @if (Model.LeaveType == "Half Day")
+    {
+        <div class="row" style=" justify-content: space-around; align-items: center;">
+            <div class="form-group">
+                <label asp-for="FromTime" class="control-label">From</label>
+                <input asp-for="FromTime" type="time" class="form-control" />
+                <span asp-validation-for="FromTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToTime" class="control-label">To</label>
+                <input asp-for="ToTime" type="time" class="form-control" disabled />
+                <span asp-validation-for="ToTime" class="text-danger"></span>
+            </div>
+            <input type="number" style="width:25%" disabled />
+        </div>
+    }
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type" class="control-label">Avail Type:-</label><br>
+        Planned: <input type="radio" name="Type" @( Model.Type == "Planned" ? "checked='true'" : "") value="Planned">
+        UnPlanned: <input type="radio" name="Type" @(Model.Type == "UnPlanned" ? "checked='true'" : "") value="UnPlanned">
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

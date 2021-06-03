@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OneCasa</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+
+    @*<link href="~/css/Custom.css" rel="stylesheet" />*@
+    @*<link rel="stylesheet" href="~/css/site.css" />*@
+  
+    @*<link rel="stylesheet" href="~/css/custom.css" />*@
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/js/Custom.js"></script>
+</head>
+<body>
+    <div>
+        <div class="d-flex justify-content-between nav-logo">
+            <div>
+                <header>
+                    <img src="https://assets.onebcg.com/logo.svg" alt="Some Error    " width="120" height="65">
+                </header>
+            </div>
+            <div class="row">
+                <h4>Leave Balance:5 &ensp;</h4>
+                <h4>Immediate Leave:5 &ensp;</h4>
+                @*<h4>Ashutosh Bisht &ensp;</h4>*@
+                <h4 class="click3" id="username">Ashutosh Bisht &ensp;</h4>
+                @*<div class="Leaves3" style=" height: 52px; width: 222px; margin-top: 30px; margin-left: -177px;display:none">
+                    <ul class="leave" style="list-style-type: none;">
+                        <button><a href="/Home/Logout">Logout</a></button>
+                    </ul>
+                </div>*@
+            <button class="logout " style= "height: 35px; width: 110px; margin-top: 30px;margin-left: -109px;"onlcick=logout()>Logout</button>
+            
+            </div>
+
+        </div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="HEIGHT: 56PX;">
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link forhover" href="https://localhost:44374/Employee/Dashboard" target="_self" style="color:white;">Dashboard</a>
+                </li>
+
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle forhover" href="#" id="navbardrop" data-toggle="dropdown" style="color:white;">
+                        Leaves
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="https://localhost:44374/Leave/ApplyLeave">Leaves</a>
+                        <a class="dropdown-item" href="https://localhost:44374/Leave/LeaveLedger">Leaves Ledger</a>
+                        <a class="dropdown-item edithide" href="https://localhost:44374/Leave/Action">Confirmation</a>
+                        <a class="dropdown-item edithide" href="https://localhost:44374/Leave/LOP">LOP Report</a>
+                        <a class="dropdown-item edithide" href="https://localhost:44374/Leave/LeaveSummeryReport">Summary Report</a>
+                        <a class="dropdown-item edithide" href="https://localhost:44374/Leave/ReportTaken">Leaves Report Summary</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link forhover " href="https://localhost:44374/Employee/Index" style="color:white;">Employees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link forhover " style="color:white;" href="https://docs.google.com/forms/d/e/1FAIpQLScRyblOYHfgjNP-pLsJCMcxvATSLCXpGUh60dBXYINf6ovggQ/viewform" target="_blank"> Regularize Attendence</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle forhover edithide" href="#" id="navbardrop" data-toggle="dropdown" style="color:white;">
+                        Setting
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="https://localhost:44374/setting/JobTitle">Job Title</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/JoiningLeaveFactor">Joining Leave Factor</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/JoiningLeaveFactor">Leave Balance Adjustment</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/LoyaltyLeave">Loyality Leave Factor</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/MonthlyLeave">Monthly Leave Factor</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/PlannedLeave">planned Leave setting</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/PublicHoliday">Public Holiday setting</a>
+                        <a class="dropdown-item" href="https://localhost:44374/setting/UnplannedLeave">Unplanned Leave setting</a>
+
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link forhover" href="https://localhost:44331/Project/Biometric" target="_self" style="color:white;">BioMetric</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link forhover" href="#" style="color:white;">Web-Punches</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="onlyforbg">
+        @*<div class="container body-content">*@
+        @RenderBody()
+
+        @*</div>*@
+        @*<div class="container">
+            <main role="main" class="pb-3">*@
+        @*@RenderBody()*@
+        @*</main>
+            </div>*@
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="containerfoot" style="font-weight: bold; text-align:center">
+            Copyright © 2021 ONE BCG. All rights reserved.
+        </div>
+    </footer>
+    @*<script src="  <script src=" https: //cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>"></script>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Leave.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

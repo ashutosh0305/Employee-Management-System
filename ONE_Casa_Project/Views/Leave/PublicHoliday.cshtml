@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ONE_Casa_Project.Models.PublicHolidays>
+
+
+
+@{
+    ViewData["Title"] = "PublicHoliday";
+}
+
+@Html.Partial("LeavePartial")
+
+<select class="form-select" style=" margin-left: 4vh; margin-top: 6vh; width: 12vw; border: 1px outset lightskyblue; border-radius: 6px; }">
+    <option value="Consulting">Consulting</option>
+    <option value="KPO B">KPO B</option>
+</select>
+
+
+<h4 style=" margin-left: 3vw; padding-top: 4vh; padding-bottom: 4vh;">PublicHoliday</h4>
+
+<table class="table" id="table1" style=" background-color: white;width: 90vw;margin: auto;">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HolidayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dates)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Department == "Consulting" || item.Department == "Both")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HolidayName)
+                    </td>
+                    <td>
+                        <p>@item.Dates.Day-@item.Dates.Month-@item.Dates.Year</p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<table class="table" id="table2" style=" background-color: white;width: 90vw;margin: auto;">
+    <thead class="table-dark">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HolidayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dates)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Department == "KPO B" || item.Department == "Both")
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HolidayName)
+                    </td>
+                    <td>
+                        <p>@item.Dates.Day-@item.Dates.Month-@item.Dates.Year</p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

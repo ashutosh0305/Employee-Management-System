@@ -1,0 +1,158 @@
+﻿
+@model ONE_Casa_Project.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+    List<Employee> Emp = ViewBag.Emp;
+    List<JobTitles> Job = ViewBag.Job;
+    List<Departments> Depa = ViewBag.Depa;
+}
+
+<hr />
+<div class="registerEdit">
+    <h4 style="padding:17px">Edit </h4>
+    <form asp-action="Edit" class="registerForm">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Id" class="control-label"></label>
+            <input asp-for="Id" class="form-control" disabled />
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Name*</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dob" class="control-label">Date of Birth*</label>
+            <input asp-for="Dob" class="form-control" />
+            <span asp-validation-for="Dob" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Gender" class="control-label">Gender</label><br />
+            Male: @Html.RadioButton("Gender", "Male")<br />
+            Female: @Html.RadioButton("Gender", "Female")
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="control-label">Email*</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Mobile" class="control-label">Mobile Number*</label>
+            <input asp-for="Mobile" class="form-control" />
+            <span asp-validation-for="Mobile" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="MarriageAnniversary" class="control-label"></label>
+            <input asp-for="MarriageAnniversary" class="form-control" />
+            <span asp-validation-for="MarriageAnniversary" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateOfJoining" class="control-label">Date of Joining*</label>
+            <input asp-for="DateOfJoining" class="form-control" />
+            <span asp-validation-for="DateOfJoining" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Department" class="control-label">Select Department*</label>
+            <select class="form-control" aria-label="Default select example" name="Department" id="Department">
+
+                @foreach (var data in Depa)
+                {
+                    <option value="@data.DepartmentName">@data.DepartmentName</option>
+                }
+            </select>
+            <span asp-validation-for="Department" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="JobTitle" class="control-label">Select Job Title*</label>
+            <select class="form-control" aria-label="Default select example" name="JobTitle" id="JobTitle">
+
+                @foreach (var data in Job)
+                {
+                    <option value="@data.JobTitle">@data.JobTitle</option>
+                }
+            </select>
+            <span asp-validation-for="JobTitle" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="JobRole" class="control-label"></label>
+            <input asp-for="JobRole" class="form-control" />
+            <span asp-validation-for="JobRole" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="ReportingManager" class="control-label">Select Reporting Manager*</label>
+            <select class="form-control" aria-label="Default select example" name="ReportingManager" id="ReportingManager">
+
+                @foreach (var data in Emp)
+                {
+                    <option value="@data.Name">@data.Name</option>
+                }
+            </select>                <span asp-validation-for="ReportingManager" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SecondaryApprover" class="control-label">Secondary Approver</label>
+            <input asp-for="SecondaryApprover" class="form-control" />
+            <span asp-validation-for="SecondaryApprover" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Status" class="control-label"></label>
+            Active: @Html.RadioButton("Status", "Active")<br />
+            NotActive: @Html.RadioButton("Status", "NotActive")
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="InitialLeave" class="control-label">Initial Leave Balance*</label>
+            <input asp-for="InitialLeave" class="form-control" />
+            <span asp-validation-for="InitialLeave" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="InitialImmediate" class="control-label">Initial Immediate Balance*</label>
+            <input asp-for="InitialImmediate" class="form-control" />
+            <span asp-validation-for="InitialImmediate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastWorkingDay" class="control-label"></label>
+            <input asp-for="LastWorkingDay" class="form-control" />
+            <span asp-validation-for="LastWorkingDay" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Role" class="control-label"></label><br />
+            Admin: @Html.RadioButton("Role", "Admin")<br />
+            NotAdmin: @Html.RadioButton("Role", "NotAdmin")
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+
+
